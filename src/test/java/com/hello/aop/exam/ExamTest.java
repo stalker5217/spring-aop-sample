@@ -1,0 +1,23 @@
+package com.hello.aop.exam;
+
+import org.junit.jupiter.api.Test;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.context.annotation.Import;
+
+import com.hello.aop.exam.aop.RetryAspect;
+import com.hello.aop.exam.aop.TraceAspect;
+
+@Import({TraceAspect.class, RetryAspect.class})
+@SpringBootTest
+class ExamTest {
+	@Autowired
+	ExamService examService;
+
+	@Test
+	void test() {
+		for (int i = 0 ; i < 5 ; i++) {
+			examService.request("data " + i);
+		}
+	}
+}

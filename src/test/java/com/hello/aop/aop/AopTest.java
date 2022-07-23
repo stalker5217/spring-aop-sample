@@ -1,4 +1,4 @@
-package com.hello.aop;
+package com.hello.aop.aop;
 
 import static org.assertj.core.api.Assertions.*;
 
